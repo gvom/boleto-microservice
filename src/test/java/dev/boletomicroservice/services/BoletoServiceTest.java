@@ -23,6 +23,12 @@ import dev.boletomicroservice.properties.AppProperties;
 import dev.boletomicroservice.repositorys.BoletoRepository;
 import dev.boletomicroservice.util.ApiUtil;
 
+/**
+ * BoletoServiceTest is a class that contains unit tests for the BoletoService class.
+ *
+ * @author Gabriel Meneses
+ * @version 1.0
+ */
 public class BoletoServiceTest {
 
 	private BoletoService boletoService;
@@ -31,6 +37,9 @@ public class BoletoServiceTest {
 	private ApiUtil apiUtil;
 	private String CODE_BAR;
 
+	/**
+	 * This method is called before each test is executed.
+	 */
 	@Before
 	public void setUp() {
 		boletoRepository = mock(BoletoRepository.class);

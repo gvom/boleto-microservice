@@ -80,6 +80,16 @@ public class AppProperties {
 	public Integer getValueAsInteger(String keyName) {
 		return Integer.parseInt(properties.getProperty(keyName, null));
 	}
+	
+	/**
+	 * Returns the value of the given key from the properties file as a Boolean.
+	 *
+	 * @param keyName the name of the key to get the value from
+	 * @return the value of the given key from the properties file
+	 */
+	public boolean getValueAsBoolean(String keyName) {
+		return Boolean.parseBoolean(properties.getProperty(keyName, "false"));
+	}
 
 	/**
 	 * Logs a debug message.

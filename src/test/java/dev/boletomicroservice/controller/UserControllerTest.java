@@ -20,11 +20,20 @@ import dev.boletomicroservice.controllers.UserController;
 import dev.boletomicroservice.models.User;
 import dev.boletomicroservice.services.UserService;
 
+/**
+ * UserControllerTest is a class that contains unit tests for the UserController class.
+ *
+ * @author Gabriel Meneses
+ * @version 1.0
+ */
 public class UserControllerTest {
 
 	private UserController userController;
 	private UserService userService;
 
+	/**
+	 * This method is called before each test is executed.
+	 */
 	@Before
 	public void setUp() {
 		userService = mock(UserService.class);

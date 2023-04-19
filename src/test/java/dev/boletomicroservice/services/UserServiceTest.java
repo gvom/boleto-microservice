@@ -19,12 +19,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import dev.boletomicroservice.models.User;
 import dev.boletomicroservice.repositorys.UserRepository;
 
+/**
+ * UserServiceTest is a class that contains unit tests for the UserService class.
+ *
+ * @author Gabriel Meneses
+ * @version 1.0
+ */
 public class UserServiceTest {
 
 	@Autowired
 	private UserService userService;
 	private UserRepository userRepository;
 
+	/**
+	 * This method is called before each test is executed.
+	 */
 	@Before
 	public void setUp() {
 		userRepository = mock(UserRepository.class);

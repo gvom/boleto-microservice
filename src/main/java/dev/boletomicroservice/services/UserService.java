@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.core.userdetails.UserDetails;
 //import org.springframework.security.core.userdetails.UserDetailsService;
 //import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,8 +15,10 @@ import org.springframework.stereotype.Service;
 
 //import dev.boletomicroservice.data.UserData;
 import dev.boletomicroservice.models.User;
+import dev.boletomicroservice.models.UserData;
 import dev.boletomicroservice.properties.AppProperties;
 import dev.boletomicroservice.repositorys.UserRepository;
+import dev.boletomicroservice.security.SecurityConfig;
 
 /**
  * UserService
@@ -23,11 +29,11 @@ import dev.boletomicroservice.repositorys.UserRepository;
  * @version 1.0
  */
 @Service
-public class UserService //implements UserDetailsService{
-{
-
+public class UserService implements UserDetailsService {
+	
 	@Autowired
 	private UserRepository userRepository;
+	
 	private AppProperties prop = AppProperties.factory();
 	
 	public UserService(UserRepository userRepository) {
@@ -41,6 +47,7 @@ public class UserService //implements UserDetailsService{
 	 */
 	public void add(User user) {
 		prop.logDebug("Adding the user in the DB.");
+		user.setSecret(SecurityConfig.passwordEncoder.encode(user.getSecret()));
 		userRepository.insert(user);
 	}
 
@@ -51,6 +58,7 @@ public class UserService //implements UserDetailsService{
 	 */
 	public void update(User user) {
 		prop.logDebug("Updating the user in the DB.");
+		user.setSecret(SecurityConfig.passwordEncoder.encode(user.getSecret()));
 		userRepository.save(user);
 	}
 
@@ -129,20 +137,15 @@ public class UserService //implements UserDetailsService{
 	 * @throws UsernameNotFoundException if the user could not be found or the user has no
 	 * GrantedAuthority
 	 */
-//	@Override
-//	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//		prop.logDebug("Authenticating the user with the email: '" + email + "' in the DB.");
-//		Optional<User> user = Optional.of(userRepository.findByEmail(email));
-//		
-//		//Default user in the properties file
-//		if(user.isEmpty() && prop.containsKey("default_email") && prop.containsKey("default_secret")) {
-//			user = Optional.of(new User("", prop.getValue("default_email"), prop.getValue("default_secret")));
-//		}
-//		
-//		if(user.isEmpty()) {
-//			throw new UsernameNotFoundException("User with email: " + email + " not found.");
-//		}
-//		
-//		return new UserData(user);
-//	}
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		prop.logDebug("Authenticating the user with the email: '" + email + "' in the DB.");
+		Optional<User> user = Optional.of(userRepository.findByEmail(email));
+		
+		if(user.isEmpty()) {
+			throw new UsernameNotFoundException("User with email: " + email + " not found.");
+		}
+		
+		return new UserData(user);
+	}
 }

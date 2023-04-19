@@ -18,10 +18,12 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import dev.boletomicroservice.models.Boleto;
 import dev.boletomicroservice.properties.AppProperties;
 import dev.boletomicroservice.services.BoletoService;
+import dev.boletomicroservice.util.JsonUtil;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 /**
  * BoletoController
@@ -35,36 +37,31 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
  */
 @RestController
 @RequestMapping("/api/boletoservice")
+@Tag(name = "Boleto Controller", description = "Responsible for handling requests for boleto information.")
 public class BoletoController {
 
 	@Autowired
 	private BoletoService service;
 	private AppProperties prop = AppProperties.factory();
-	
+
 	public BoletoController(BoletoService service) {
 		this.service = service;
 	}
 
 	/**
-	 * Handles requests for boleto information.
+	 * Calculates the interest on a boleto.
 	 * 
 	 * @return A ResponseEntity containing the boleto information or an error
 	 *         message.
 	 */
-	@ApiResponses(value = { 
-	  @ApiResponse(responseCode = "200", description = "Juros do boleto calculados.", 
-	    content = { @Content(mediaType = "application/json", 
-	      schema = @Schema(implementation = Boleto.class)) }),
-	  @ApiResponse(responseCode = "503", description = "API de Boletos Builders inalcançável.", 
-	    content = @Content), 
-	  @ApiResponse(responseCode = "400", description = "Tipo de boleto inválido. Somente boletos do tipo NPC são válidos.", 
-	    content = @Content),
-	  @ApiResponse(responseCode = "400", description = "Boleto inválido. Somente boletos vencidos.", 
-	    content = @Content),
-	  @ApiResponse(responseCode = "503", description = "API de Boletos Builders inalcançável.", 
-	    content = @Content),
-	  @ApiResponse(responseCode = "500", description = "Erro: Não foi possível transformar o objeto Java em uma string JSON.O objeto não possui os campos corretos ou contem os dados esperados.", 
-	    content = @Content) })
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Juros do boleto calculados.", content = {
+					@Content(mediaType = "application/json", schema = @Schema(implementation = Boleto.class)) }),
+			@ApiResponse(responseCode = "503", description = "API de Boletos Builders inalcançável.", content = @Content),
+			@ApiResponse(responseCode = "400", description = "Tipo de boleto inválido. Somente boletos do tipo NPC são válidos.", content = @Content),
+			@ApiResponse(responseCode = "400", description = "Boleto inválido. Somente boletos vencidos.", content = @Content),
+			@ApiResponse(responseCode = "503", description = "API de Boletos Builders inalcançável.", content = @Content),
+			@ApiResponse(responseCode = "500", description = "Erro: Não foi possível transformar o objeto Java em uma string JSON.O objeto não possui os campos corretos ou contem os dados esperados.", content = @Content) })
 	@ResponseBody
 	@RequestMapping(value = "/calc-interest", method = RequestMethod.POST)
 	public ResponseEntity<String> getBoletoStatus(@RequestBody Map<String, String> data) {
@@ -105,9 +102,7 @@ public class BoletoController {
 
 		try {
 			// Convert the boleto object to a JSON string
-			ObjectMapper objectMapper = new ObjectMapper();
-			objectMapper.registerModule(new JavaTimeModule());
-			String response = objectMapper.writeValueAsString(boletoInfo);
+			String response = JsonUtil.toString(boletoInfo);
 			return ResponseEntity.status(HttpStatus.OK).body(response);
 		} catch (JsonProcessingException e) {
 			// Log the error

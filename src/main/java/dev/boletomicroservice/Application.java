@@ -3,6 +3,9 @@ package dev.boletomicroservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import dev.boletomicroservice.properties.AppProperties;
@@ -35,8 +38,6 @@ public class Application extends SpringBootServletInitializer {
 		} catch (Exception e) {
 			// Log the exception
 			prop.logError(e);
-			//e.printStackTrace();
 		}
 	}
-
 }

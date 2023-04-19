@@ -20,18 +20,28 @@ import dev.boletomicroservice.controllers.BoletoController;
 import dev.boletomicroservice.models.Boleto;
 import dev.boletomicroservice.services.BoletoService;
 
+/**
+ * BoletoControllerTest is a class that contains unit tests for the BoletoController class.
+ *
+ * @author Gabriel Meneses
+ * @version 1.0
+ */
 public class BoletoControllerTest {
 
 	private BoletoController controller;
 	@Autowired
 	private BoletoService service;
 
+	/**
+	 * This method is called before each test is executed.
+	 */
 	@Before
 	public void setUp() {
 		service = mock(BoletoService.class);
 		controller = new BoletoController(service);
 	}
 
+	
 	@Test
 	public void testGetBoletoStatusSuccess() throws JsonProcessingException {
 		String barCode = "12345678901234567890123456789012345678901234";
