@@ -1,58 +1,42 @@
 <h1 align="left">Boleto Microservice</h1>
-
-###
-
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=github_dark&locale=en&hide_border=true&username=gvom" height="150" alt="stats graph"  />
   <img src="https://github-readme-stats.vercel.app/api/top-langs?locale=pt-br&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=github_dark&hide_border=true&username=gvom" height="150" alt="languages graph"  />
 </div>
-
-###
-
-<p align="left">Desafio técnico de Java Developer da Builders</p>
-
-###
-
-<h2 align="left">Cenário</h2>
-
-###
-
+<p align="left">Java Developer Technical Challenge from Builders</p>
+<h2 align="left">Scenario</h2>
 <p align="left">
-Este repositório contém uma solução para o desafio técnico de Java Developer da Builders. O objetivo é desenvolver uma aplicação que permita ao usuário digitar um código de boleto vencido e receber os valores de juros e multas.<br><br>
-  
-Pré-requisitos<br>
-Para executar e testar o projeto é necessário ter instalado em sua máquina o Java 17 e o 
-Maven. Também é necessário ter um banco de dados MongoDB instalado e configurado. Além 
-de ter o arquivo de variable.properties configurado na pasta src/main/resources.<br><br>
-  
-Executando o projeto<br>
-• Faça o clone deste repositório e abra o projeto em sua IDE de preferência.<br>
-• Abra o terminal e navegue até a pasta raiz do projeto.<br>
-• Execute o comando mvn clean install para baixar as dependências e compilar o projeto.<br>
-• Certifique-se de que o MongoDB esteja sendo executado em sua máquina antes de iniciar o 
-projeto.<br>
-• Execute o comando mvn spring-boot:run para iniciar o servidor.<br><br>
+This repository contains a solution for the Java Developer Technical Challenge from Builders. The goal is to develop an application that allows the user to enter an expired boleto code and receive interest and penalty values.<br><br>
+Prerequisites<br>
+To run and test the project, it is necessary to have Java 17 and Maven installed on your machine. It is also necessary to have a MongoDB database installed and configured. In addition, the variable.properties file must be configured in the src/main/resources folder.<br><br>
 
-🎯 Objetivo.<br>
-O desafio consiste em construir uma aplicação que cumpra os seguintes requisitos funcionais:<br><br>
+Running the project<br>
+• Clone this repository and open the project in your preferred IDE.<br>
+• Open the terminal and navigate to the root folder of the project.<br>
+• Run the mvn clean install command to download the dependencies and compile the project.<br>
+• Make sure that MongoDB is running on your machine before starting the project.<br>
+• Run the mvn spring-boot:run command to start the server.<br><br>
 
-• Receba um código de boleto válido<br>
-• Checa se o Boleto esta vencido.<br>
-• Apenas boletos do tipo NPC podem ser calculados<br>
-• Consumir a API de Boletos Builders para receber as informações do boleto.<br>
-• Em caso de erro, devolve o motivo do erro.<br>
-• A definição dos juros de boleto bancário ocorre considerando os dias de atraso, de maneira proporcional.<br>
-• Taxa de juros de 1% ao mês<br>
-• 1% a cada 30 dias: 1÷ 30= 0,033% ao dia<br>
-• A multa por atraso deve ser de 2%<br>
-• O valor final do boleto deve ser:<br>
-• Valor do boleto + valor da multa + valor dos juros em atraso = valor cobrado<br>
-  
-Ao final salva no banco de dados todos os cálculos realizados, para que seja possivel cruzar as informações de boletos pagos com boletos calculados.<br><br>
-  
-🚀 Funcionamento da Aplicação.<br>
-A aplicação funciona através de uma API REST construída em Java, que consome a API de Boletos Builders para calcular os juros e multas de um boleto vencido.<br>
-O usuário deve enviar um código de boleto válido através da rota /api/boletoservice/calc-interest, com o seguinte payload:<br>
+🎯 Objective.<br>
+The challenge is to build an application that meets the following functional requirements:<br><br>
+
+• Receive a valid boleto code<br>
+• Check if the boleto is expired.<br>
+• Only NPC type boletos can be calculated<br>
+• Consume the Builders Boletos API to receive boleto information.<br>
+• In case of an error, return the reason for the error.<br>
+• The definition of bank slip interest occurs considering the delay days, proportionally.<br>
+• Interest rate of 1% per month<br>
+• 1% every 30 days: 1 ÷ 30 = 0.033% per day<br>
+• The late payment fine must be 2%<br>
+• The final value of the boleto should be:<br>
+• Boleto amount + fine value + delayed interest value = charged value<br>
+
+At the end, all performed calculations are saved in the database, so that it is possible to cross-reference paid boletos with calculated boletos.<br><br>
+
+🚀 Application Functioning.<br>
+The application works through a Java-built REST API, which consumes the Builders Boletos API to calculate the interest and penalty of an expired boleto.<br>
+The user must send a valid boleto code through the /api/boletoservice/calc-interest route, with the following payload:<br>
 
   ```
   {
@@ -61,7 +45,7 @@ O usuário deve enviar um código de boleto válido através da rota /api/boleto
   }
   ```
 
-Em seguida, a API irá retornar um payload com as informações do boleto e os valores de juros e multas calculados:
+Then, the API will return a payload with boleto information and calculated interest and penalty values:
 
   ```
   {
@@ -74,7 +58,7 @@ Em seguida, a API irá retornar um payload com as informações do boleto e os v
   }
   ```
   
-Rotas:
+Routes:
   ```
   POST /api/boletoservice/calc-interest
   POST /api/user/updateUser
@@ -85,7 +69,7 @@ Rotas:
   DOC. PAGE /swagger-ui/index.html
   ```
 
-Caso ocorra algum erro durante o processamento, a API irá retornar uma mensagem de erro com o motivo do problema.
+If an error occurs during processing, the API will return an error message with the reason for the problem.
 </p>
 
 ###
