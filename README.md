@@ -7,17 +7,8 @@
 <h2 align="left">Scenario</h2>
 <p align="left">
 This repository contains a solution for the Java Developer Technical Challenge from Builders. The goal is to develop an application that allows the user to enter an expired boleto code and receive interest and penalty values.<br><br>
-Prerequisites<br>
-To run and test the project, it is necessary to have Java 17 and Maven installed on your machine. It is also necessary to have a MongoDB database installed and configured. In addition, the variable.properties file must be configured in the src/main/resources folder.<br><br>
 
-Running the project<br>
-• Clone this repository and open the project in your preferred IDE.<br>
-• Open the terminal and navigate to the root folder of the project.<br>
-• Run the mvn clean install command to download the dependencies and compile the project.<br>
-• Make sure that MongoDB is running on your machine before starting the project.<br>
-• Run the mvn spring-boot:run command to start the server.<br><br>
-
-🎯 Objective.<br>
+<h2>🎯 Objective.</h2><br>
 The challenge is to build an application that meets the following functional requirements:<br><br>
 
 • Receive a valid boleto code<br>
@@ -33,8 +24,18 @@ The challenge is to build an application that meets the following functional req
 • Boleto amount + fine value + delayed interest value = charged value<br>
 
 At the end, all performed calculations are saved in the database, so that it is possible to cross-reference paid boletos with calculated boletos.<br><br>
+  
+<h2>Prerequisites</h2><br>
+To run and test the project, it is necessary to have Java 17 and Maven installed on your machine. It is also necessary to have a MongoDB database installed and configured. In addition, the variable.properties file must be configured in the src/main/resources folder.<br><br>
 
-🚀 Application Functioning.<br>
+<h2>Running the project</h2><br>
+• Clone this repository and open the project in your preferred IDE.<br>
+• Open the terminal and navigate to the root folder of the project.<br>
+• Run the mvn clean install command to download the dependencies and compile the project.<br>
+• Make sure that MongoDB is running on your machine before starting the project.<br>
+• Run the mvn spring-boot:run command to start the server.<br><br>
+
+<h2>🚀 Application Functioning</h2><br>
 The application works through a Java-built REST API, which consumes the Builders Boletos API to calculate the interest and penalty of an expired boleto.<br>
 The user must send a valid boleto code through the /api/boletoservice/calc-interest route, with the following payload:<br>
 
@@ -58,7 +59,7 @@ Then, the API will return a payload with boleto information and calculated inter
   }
   ```
   
-Routes:
+<h2>Routes:</h2>
   ```
   POST /api/boletoservice/calc-interest
   POST /api/user/updateUser
