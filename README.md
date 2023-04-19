@@ -8,7 +8,7 @@
 <p align="left">
 This repository contains a solution for the Java Developer Technical Challenge from Builders. The goal is to develop an application that allows the user to enter an expired boleto code and receive interest and penalty values.<br><br>
 
-<h2>🎯 Objective.</h2><br>
+<h2>🎯 Objective</h2><br>
 The challenge is to build an application that meets the following functional requirements:<br><br>
 
 • Receive a valid boleto code<br>
