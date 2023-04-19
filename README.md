@@ -18,26 +18,26 @@
 ###
 
 <p align="left">
-Este repositório contém uma solução para o desafio técnico de Java Developer da Builders. O objetivo é desenvolver uma aplicação que permita ao usuário digitar um código de boleto vencido e receber os valores de juros e multas.
+Este repositório contém uma solução para o desafio técnico de Java Developer da Builders. O objetivo é desenvolver uma aplicação que permita ao usuário digitar um código de boleto vencido e receber os valores de juros e multas.<br>.<br>
 
-🎯 Objetivo
-O desafio consiste em construir uma aplicação que cumpra os seguintes requisitos funcionais:
+🎯 Objetivo.<br>
+O desafio consiste em construir uma aplicação que cumpra os seguintes requisitos funcionais:.<br>.<br>
 
-Incluir um código de boleto válido
-O Boleto deve estar vencido
-Apenas boletos do tipo NPC podem ser calculados
-Para receber as informações do boleto, consumir a API de Boletos Builders
-Em caso de erro, devolver o motivo do erro
-A definição dos juros de boleto bancário ocorre considerando os dias de atraso, de maneira proporcional.
-Taxa de juros de 1% ao mês
-1% a cada 30 dias: 1÷ 30= 0,033% ao dia
-A multa por atraso deve ser de 2%
-O valor final do boleto deve ser:
-Valor do boleto + valor da multa + valor dos juros em atraso = valor cobrado
-Salvar em um banco de dados todos os cálculos realizados, para que nosso time de dados possa depois cruzar as informações de boletos pagos com boletos calculados.
-🚀 Funcionamento da Aplicação
-A aplicação funciona através de uma API REST construída em Java, que consome a API de Boletos Builders para calcular os juros e multas de um boleto vencido.
-O usuário deve enviar um código de boleto válido através da rota /api/boletoservice/calc-interest, com o seguinte payload:
+Incluir um código de boleto válido.<br>
+O Boleto deve estar vencido.<br>
+Apenas boletos do tipo NPC podem ser calculados.<br>
+Para receber as informações do boleto, consumir a API de Boletos Builders.<br>
+Em caso de erro, devolver o motivo do erro.<br>
+A definição dos juros de boleto bancário ocorre considerando os dias de atraso, de maneira proporcional..<br>
+Taxa de juros de 1% ao mês.<br>
+1% a cada 30 dias: 1÷ 30= 0,033% ao dia.<br>
+A multa por atraso deve ser de 2%.<br>
+O valor final do boleto deve ser:.<br>
+Valor do boleto + valor da multa + valor dos juros em atraso = valor cobrado.<br>
+Salvar em um banco de dados todos os cálculos realizados, para que nosso time de dados possa depois cruzar as informações de boletos pagos com boletos calculados..<br>.<br>
+🚀 Funcionamento da Aplicação.<br>
+A aplicação funciona através de uma API REST construída em Java, que consome a API de Boletos Builders para calcular os juros e multas de um boleto vencido..<br>
+O usuário deve enviar um código de boleto válido através da rota /api/boletoservice/calc-interest, com o seguinte payload:.<br>
 
 ```
 {
