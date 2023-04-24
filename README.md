@@ -1,9 +1,8 @@
-<h1 align="left">Boleto Microservice</h1>
+<h1 align="center">Java Example - Boleto Microservice</h1>
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=github_dark&locale=en&hide_border=true&username=gvom" height="150" alt="stats graph"  />
   <img src="https://github-readme-stats.vercel.app/api/top-langs?locale=pt-br&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=github_dark&hide_border=true&username=gvom" height="150" alt="languages graph"  />
 </div>
-<p align="left">Java Microservice Example</p>
 <h2 align="left">About</h2>
 <p align="left">
 This repository contains a microservice made in Spring Boot Java. The goal is an application that allows the user to enter an expired boleto code and receive interest and penalty values.<br><br>
