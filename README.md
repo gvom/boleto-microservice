@@ -4,7 +4,7 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs?locale=pt-br&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=github_dark&hide_border=true&username=gvom" height="150" alt="languages graph"  />
 </div>
 <p align="left">Java Microservice Example</p>
-<h2 align="left">Scenario</h2>
+<h2 align="left">About</h2>
 <p align="left">
 This repository contains a microservice made in Spring Boot Java. The goal is an application that allows the user to enter an expired boleto code and receive interest and penalty values.<br><br>
 
@@ -62,13 +62,13 @@ Then, the API will return a payload with boleto information and calculated inter
 <h2>Routes:</h2>
 
   ```
-  POST /api/boletoservice/calc-interest<br>
-  POST /api/user/updateUser<br>
-  POST /api/user/authenticate<br>
-  POST /api/user/addUser<br>
-  GET /api/user/getUser/{user-id}<br>
-  DELETE /api/user/deleteUser/{user-id}<br>
-  DOC. PAGE /swagger-ui/index.html<br>
+  POST /api/boletoservice/calc-interest
+  POST /api/user/updateUser
+  POST /api/user/authenticate
+  POST /api/user/addUser
+  GET /api/user/getUser/{user-id}
+  DELETE /api/user/deleteUser/{user-id}
+  DOC. PAGE /swagger-ui/index.html
   ```
 
 If an error occurs during processing, the API will return an error message with the reason for the problem.
