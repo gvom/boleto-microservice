@@ -3,20 +3,20 @@
   <img src="https://github-readme-stats.vercel.app/api?hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=github_dark&locale=en&hide_border=true&username=gvom" height="150" alt="stats graph"  />
   <img src="https://github-readme-stats.vercel.app/api/top-langs?locale=pt-br&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=github_dark&hide_border=true&username=gvom" height="150" alt="languages graph"  />
 </div>
-<p align="left">Java Developer Technical Challenge from Builders</p>
+<p align="left">Java Microservice Example</p>
 <h2 align="left">Scenario</h2>
 <p align="left">
-This repository contains a solution for the Java Developer Technical Challenge from Builders. The goal is to develop an application that allows the user to enter an expired boleto code and receive interest and penalty values.<br><br>
+This repository contains a microservice made in Spring Boot Java. The goal is an application that allows the user to enter an expired boleto code and receive interest and penalty values.<br><br>
 
 <h2>🎯 Objective</h2><br>
-The challenge is to build an application that meets the following functional requirements:<br><br>
+The is application that meets the following functional requirements:<br><br>
 
 • Receive a valid boleto code<br>
-• Check if the boleto is expired.<br>
+• Check if the boleto is expired<br>
 • Only NPC type boletos can be calculated<br>
-• Consume the Builders Boletos API to receive boleto information.<br>
-• In case of an error, return the reason for the error.<br>
-• The definition of bank slip interest occurs considering the delay days, proportionally.<br>
+• Consume the Builders Boletos API to receive boleto information<br>
+• In case of an error, return the reason for the error<br>
+• The definition of bank slip interest occurs considering the delay days, proportionally<br>
 • Interest rate of 1% per month<br>
 • 1% every 30 days: 1 ÷ 30 = 0.033% per day<br>
 • The late payment fine must be 2%<br>
@@ -60,14 +60,15 @@ Then, the API will return a payload with boleto information and calculated inter
   ```
   
 <h2>Routes:</h2>
+
   ```
-  POST /api/boletoservice/calc-interest
-  POST /api/user/updateUser
-  POST /api/user/authenticate
-  POST /api/user/addUser
-  GET /api/user/getUser/{user-id}
-  DELETE /api/user/deleteUser/{user-id}
-  DOC. PAGE /swagger-ui/index.html
+  POST /api/boletoservice/calc-interest<br>
+  POST /api/user/updateUser<br>
+  POST /api/user/authenticate<br>
+  POST /api/user/addUser<br>
+  GET /api/user/getUser/{user-id}<br>
+  DELETE /api/user/deleteUser/{user-id}<br>
+  DOC. PAGE /swagger-ui/index.html<br>
   ```
 
 If an error occurs during processing, the API will return an error message with the reason for the problem.
